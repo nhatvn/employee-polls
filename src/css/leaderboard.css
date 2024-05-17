@@ -1,0 +1,11 @@
+.box-user-leaderboard {
+    display: flex;
+    align-items: center;
+}
+
+.user-avatar-leaderboard {
+    height: 30px;
+    width: 30px;
+    margin-right: 5px;
+    border-radius: 50%;
+}

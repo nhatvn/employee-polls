@@ -1,0 +1,33 @@
+.nav {
+    border-bottom: 1px solid #ced4da;
+    margin-bottom: 15px;
+}
+
+.nav-avatar {
+    width: 30px;
+    height: 30px;
+    margin-right: 5px;
+}
+
+.nav-avatar-logout-box {
+    margin-left: auto;
+    padding-right: 0;
+}
+
+.nav ul>li {
+    align-items: end;
+    display: flex;
+}
+
+.nav ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    text-decoration: none;
+    padding: 0 30px;
+    margin: 0;
+}
+
+.nav li:first-child {
+    padding-left: 0;
+}

@@ -1,0 +1,22 @@
+.box-title {
+    border-top: none;
+    border-right: none;
+    border-left: none;
+    border-end-start-radius: 0;
+    border-end-end-radius: 0;
+}
+
+.box-content {
+    margin-bottom: 25px;
+}
+
+.btn-home-show {
+    border-color: #a0d296;
+    width: 100%;
+    background: none;
+    color: #a0d296;
+}
+
+.separate-line {
+    border-bottom: 1px solid #f3f3f3;
+}

@@ -1,0 +1,39 @@
+.box-question {
+    overflow: hidden;
+}
+
+.btn-poll-click,
+.box-answered {
+    width: 100%;
+    background: #63b2ac;
+    border: none;
+    border-radius: 0;
+    color: #ffffff;
+    font-weight: 700;
+}
+
+.box-answered {
+    display: inline-block;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    border: 1px solid transparent;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+.poll-selected {
+    border-color: #63b2ac;
+    font-weight: 700;
+}
+
+.poll-avatar {
+    width: 200px;
+    margin: auto;
+    display: flex;
+}
+
+.checkmark-circle-selected {
+    color: #63b2ac;
+}

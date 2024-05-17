@@ -1,0 +1,69 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`formatLeaderboard will match snapshot 1`] = `
+Array [
+  Object {
+    "answered": 4,
+    "answers": Object {
+      "6ni6ok3ym7mf1p33lnez": "optionOne",
+      "8xf0y6ziyjabvozdd253nd": "optionOne",
+      "am8ehyc8byjqgar0jgpub9": "optionTwo",
+      "loxhs1bqm25b708cmbf3g": "optionTwo",
+    },
+    "avatarURL": "woman-user-color-icon.png",
+    "created": 2,
+    "id": "sarahedo",
+    "name": "Sarah Edo",
+    "password": "password123",
+    "questions": Array [
+      "8xf0y6ziyjabvozdd253nd",
+      "am8ehyc8byjqgar0jgpub9",
+    ],
+  },
+  Object {
+    "answered": 2,
+    "answers": Object {
+      "vthrdm985a262al8qx3do": "optionOne",
+      "xj352vofupe1dqz9emx13r": "optionTwo",
+    },
+    "avatarURL": "man-user-color-icon.png",
+    "created": 2,
+    "id": "tylermcginnis",
+    "name": "Tyler McGinnis",
+    "password": "abc321",
+    "questions": Array [
+      "loxhs1bqm25b708cmbf3g",
+      "vthrdm985a262al8qx3do",
+    ],
+  },
+  Object {
+    "answered": 3,
+    "answers": Object {
+      "6ni6ok3ym7mf1p33lnez": "optionOne",
+      "vthrdm985a262al8qx3do": "optionTwo",
+      "xj352vofupe1dqz9emx13r": "optionOne",
+    },
+    "avatarURL": "boy-glasses-icon.png",
+    "created": 2,
+    "id": "mtsamis",
+    "name": "Mike Tsamis",
+    "password": "xyz123",
+    "questions": Array [
+      "6ni6ok3ym7mf1p33lnez",
+      "xj352vofupe1dqz9emx13r",
+    ],
+  },
+  Object {
+    "answered": 1,
+    "answers": Object {
+      "xj352vofupe1dqz9emx13r": "optionOne",
+    },
+    "avatarURL": "elderly-grandmother-icon.png",
+    "created": 0,
+    "id": "zoshikanlu",
+    "name": "Zenobia Oshikanlu",
+    "password": "pass246",
+    "questions": Array [],
+  },
+]
+`;
