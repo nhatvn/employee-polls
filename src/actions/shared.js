@@ -3,24 +3,20 @@ import { receiveQuestions } from "./questions"
 import { receiveUsers } from './users'
 import { showLoading, hideLoading } from "react-redux-loading-bar"
 
-export function handleInitialData() {
-    return (dispatch) => {
-        dispatch(showLoading());
+export function handleInitialData(dispatch) {
+    dispatch(showLoading());
 
-        return getInitialData().then(({ users }) => {
-            dispatch(receiveUsers(users));
-            dispatch(hideLoading());
-        })
-    }
+    return getInitialData().then(({ users }) => {
+        dispatch(receiveUsers(users));
+        dispatch(hideLoading());
+    });
 }
 
-export function handleInitialDataAfterLogin() {
-    return (dispatch) => {
-        dispatch(showLoading());
+export async function handleInitialDataAfterLogin(dispatch) {
+    dispatch(showLoading());
 
-        return getInitialDataAfterLogin().then(({ questions }) => {
-            dispatch(receiveQuestions(questions));
-            dispatch(hideLoading());
-        });
-    }
+    return await getInitialDataAfterLogin().then(({ questions }) => {
+        dispatch(receiveQuestions(questions));
+        dispatch(hideLoading());
+    });
 }

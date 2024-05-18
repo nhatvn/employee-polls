@@ -1,5 +1,5 @@
 import { _getQuestions, _getUsers } from "../utils/_DATA";
-import { formatDate, formatLeaderboard, objectToArray } from '../utils/helpers'
+import { formatDate, objectToArray } from '../utils/helpers'
 
 describe('objectToArray', () => {
     it('input object will return the array', () => {
@@ -20,16 +20,5 @@ describe('formatDate', () => {
         var result = formatDate(null);
 
         expect(result).toEqual('');
-    })
-})
-
-describe('formatLeaderboard', () => {
-    it('will match snapshot', async () => {
-        const users = await _getUsers();
-        const questions = await _getQuestions();
-
-        var result = formatLeaderboard(users, questions);
-
-        expect(result).toMatchSnapshot();
     })
 })

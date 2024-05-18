@@ -1,10 +1,11 @@
-import { connect } from "react-redux";
+import { useDispatch } from "react-redux";
 import "../css/poll-creation.css"
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { handleAddQuestion } from "../actions/questions";
 
-const PollCreationPage = ({ dispatch }) => {
+const PollCreationPage = () => {
+    const dispatch = useDispatch();
     const navigate = useNavigate();
     const [optionOneText, setOptionOneText] = useState('');
     const [optionOneValidate, setOptionOneValidate] = useState('');
@@ -89,4 +90,4 @@ const PollCreationPage = ({ dispatch }) => {
 };
 
 
-export default connect()(PollCreationPage);
+export default PollCreationPage;

@@ -1,10 +1,10 @@
 import { useNavigate } from "react-router-dom";
 import { actionLogin } from "../actions/actionLogin";
-import { connect } from "react-redux";
+import { useDispatch } from "react-redux"
 
-const Logout = ({ dispatch }) => {
+const Logout = () => {
+    const dispatch = useDispatch()
     const navigate = useNavigate();
-
     const hanldeLogout = () => {
         dispatch(actionLogin(null));
         navigate('/login');
@@ -15,4 +15,4 @@ const Logout = ({ dispatch }) => {
     )
 }
 
-export default connect()(Logout);
+export default Logout;

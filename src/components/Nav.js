@@ -1,10 +1,12 @@
 import { Link } from "react-router-dom";
 import '../css/nav.css'
-import { connect } from "react-redux";
+import { useSelector } from "react-redux";
 import { getImages } from "../utils/helpers";
 import Logout from "./Logout";
 
-const Nav = ({ user }) => {
+const Nav = () => {
+    const user = useSelector(({ authedUser, users }) => users[authedUser]);
+
     return (
         <nav className="nav">
             {!user ? null : (
@@ -29,8 +31,4 @@ const Nav = ({ user }) => {
     )
 }
 
-const mapStateToProps = ({ authedUser, users }) => ({
-    user: users[authedUser]
-});
-
-export default connect(mapStateToProps)(Nav);
+export default Nav;

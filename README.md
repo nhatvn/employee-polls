@@ -1,5 +1,5 @@
 # Employee Polls Project
-Users will be able to answer polls, see which polls they haven’t answered, see how other people have voted, post polls, and see the ranking of users on the leaderboard.
+Users will be able to answer polls, see which polls they haven't answered, see how other people have voted, post polls, and see the ranking of users on the leaderboard.
 
 # Project Setup
 

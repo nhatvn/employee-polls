@@ -5,7 +5,7 @@ const AuthRoute = ({ authedUser }) => {
     const location = useLocation();
 
     if (!authedUser) {
-        return <Navigate to="/login" replace state={{ path: location.pathname }} />;
+        return <Navigate to="/login" replace state={{ path: location?.pathname }} />;
     }
 
     return <Outlet />;

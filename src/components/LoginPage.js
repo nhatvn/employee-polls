@@ -9,7 +9,7 @@ import { objectToArray } from "../utils/helpers";
 
 const LoginPage = ({ dispatch, users }) => {
     useEffect(() => {
-        dispatch(handleInitialData());
+        handleInitialData(dispatch);
     }, [dispatch]);
 
     const navigate = useNavigate();
@@ -33,7 +33,7 @@ const LoginPage = ({ dispatch, users }) => {
         let user = users[userName] && users[userName].password === password && users[userName];
 
         if (user) {
-            await dispatch(handleInitialDataAfterLogin());
+            await handleInitialDataAfterLogin(dispatch);
             dispatch(actionLogin(user.id));
             navigate(state?.path || "/");
         }
