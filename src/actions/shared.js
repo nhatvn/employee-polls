@@ -15,14 +15,12 @@ export function handleInitialData() {
 }
 
 export function handleInitialDataAfterLogin() {
-    return (dispatch, getState) => {
-        if (getState().authedUser) {
-            dispatch(showLoading());
+    return (dispatch) => {
+        dispatch(showLoading());
 
-            return getInitialDataAfterLogin().then(({ questions }) => {
-                dispatch(receiveQuestions(questions));
-                dispatch(hideLoading());
-            });
-        }
+        return getInitialDataAfterLogin().then(({ questions }) => {
+            dispatch(receiveQuestions(questions));
+            dispatch(hideLoading());
+        });
     }
 }

@@ -1,9 +1,11 @@
 import { connect } from "react-redux";
-import { Navigate, Outlet } from "react-router-dom";
+import { Navigate, Outlet, useLocation } from "react-router-dom";
 
 const AuthRoute = ({ authedUser }) => {
+    const location = useLocation();
+
     if (!authedUser) {
-        return <Navigate to="/login" replace />;
+        return <Navigate to="/login" replace state={{ path: location.pathname }} />;
     }
 
     return <Outlet />;

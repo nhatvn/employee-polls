@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { connect } from "react-redux";
 import { actionLogin } from "../actions/actionLogin";
 import userGroup from "../images/user-group.png"
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import LoadingBar from "react-redux-loading-bar";
 import { handleInitialData, handleInitialDataAfterLogin } from "../actions/shared";
 import { objectToArray } from "../utils/helpers";
@@ -13,9 +13,10 @@ const LoginPage = ({ dispatch, users }) => {
     }, [dispatch]);
 
     const navigate = useNavigate();
-    const [userName, setUserName] = useState("");
-    const [password, setPassword] = useState("");
-    const [wrongPassword, setWrongPassword] = useState("");
+    const [userName, setUserName] = useState('');
+    const [password, setPassword] = useState('');
+    const [wrongPassword, setWrongPassword] = useState('');
+    const { state } = useLocation();
     const handleUserNameChange = (e) => {
         setUserName(e.target.value);
         let user = users[e.target.value];
@@ -23,25 +24,28 @@ const LoginPage = ({ dispatch, users }) => {
     };
     const handlePasswordChange = (e) => {
         setPassword(e.target.value);
+
+        setWrongPassword('');
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
         let user = users[userName] && users[userName].password === password && users[userName];
 
         if (user) {
+            await dispatch(handleInitialDataAfterLogin());
             dispatch(actionLogin(user.id));
-            dispatch(handleInitialDataAfterLogin());
-            navigate('/');
+            navigate(state?.path || "/");
         }
         else {
-            setWrongPassword("Password incorrect.");
+            setWrongPassword('Password incorrect.');
         }
     };
 
     return (
         <div>
-            {!users || Object.keys(users).length === 0 ? <LoadingBar /> : (
+            <LoadingBar />
+            {!users || Object.keys(users).length === 0 ? null : (
                 <form onSubmit={handleSubmit} data-testid="loginForm">
                     <h3 className="center">Employee Polls</h3>
                     <img src={userGroup} alt="User Avatar" className="user-group" />

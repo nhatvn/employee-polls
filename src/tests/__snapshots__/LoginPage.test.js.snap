@@ -6,6 +6,17 @@ Object {
   "baseElement": <body>
     <div>
       <div>
+        <div
+          style="direction: ltr;"
+        >
+          <div
+            class=""
+            style="width: 0%; transition: width 800ms linear 0s; will-change: width, opacity; height: 3px; background-color: red; position: absolute; opacity: 0;"
+          />
+          <div
+            style="display: table; clear: both;"
+          />
+        </div>
         <form
           data-testid="loginForm"
         >
@@ -106,6 +117,17 @@ Object {
   </body>,
   "container": <div>
     <div>
+      <div
+        style="direction: ltr;"
+      >
+        <div
+          class=""
+          style="width: 0%; transition: width 800ms linear 0s; will-change: width, opacity; height: 3px; background-color: red; position: absolute; opacity: 0;"
+        />
+        <div
+          style="display: table; clear: both;"
+        />
+      </div>
       <form
         data-testid="loginForm"
       >

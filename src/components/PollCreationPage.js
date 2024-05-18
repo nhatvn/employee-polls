@@ -6,28 +6,51 @@ import { handleAddQuestion } from "../actions/questions";
 
 const PollCreationPage = ({ dispatch }) => {
     const navigate = useNavigate();
-    const [optionOneText, setOptionOneText] = useState("");
-    const [optionTwoText, setOptionTwoText] = useState("");
+    const [optionOneText, setOptionOneText] = useState('');
+    const [optionOneValidate, setOptionOneValidate] = useState('');
+    const [optionTwoText, setOptionTwoText] = useState('');
+    const [optionTwoValidate, setOptionTwoValidate] = useState('');
 
     const handleOptionOneChange = (e) => {
-        const text = e.target.value;
+        const text = e.target.value.trim();
         setOptionOneText(text);
+
+        if (text !== '') {
+            setOptionOneValidate('');
+        }
     };
 
     const handleOptionTwoChange = (e) => {
-        const text = e.target.value;
+        const text = e.target.value.trim();
+
+        if (text !== '') {
+            setOptionTwoValidate('');
+        }
         setOptionTwoText(text);
     };
 
     const handleSubmit = (e) => {
         e.preventDefault();
+        let isValid = true;
 
-        dispatch(handleAddQuestion(optionOneText, optionTwoText));
+        if (optionOneText === '') {
+            isValid = false;
+            setOptionOneValidate('Option One is required.');
+        }
 
-        setOptionOneText("");
-        setOptionTwoText("");
+        if (optionTwoText === '') {
+            isValid = false;
+            setOptionTwoValidate('Option Two is required.');
+        }
 
-        navigate("/");
+        if (isValid) {
+            dispatch(handleAddQuestion(optionOneText, optionTwoText));
+
+            setOptionOneText('');
+            setOptionTwoText('');
+
+            navigate("/");
+        }
     };
 
     return (
@@ -43,6 +66,7 @@ const PollCreationPage = ({ dispatch }) => {
                         placeholder="Option One"
                         value={optionOneText}
                         onChange={handleOptionOneChange} />
+                    <div className="text-danger">{optionOneValidate}</div>
                 </label>
             </div>
             <div className="mb-10">
@@ -54,6 +78,7 @@ const PollCreationPage = ({ dispatch }) => {
                         placeholder="Option Two"
                         value={optionTwoText}
                         onChange={handleOptionTwoChange} />
+                    <div className="text-danger">{optionTwoValidate}</div>
                 </label>
             </div>
             <div className="center">

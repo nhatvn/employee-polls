@@ -5,11 +5,15 @@ import PollPage from "./PollPage";
 import PollCreationPage from "./PollCreationPage";
 import LeaderboardPage from "./LeaderboardPage";
 import AuthRoute from "./AuthRoute";
+import NotFoundPage from "./NotFoundPage";
+import { connect } from "react-redux";
 
-const RoutersPage = () => {
+const RoutersPage = ({ authedUser }) => {
     return (
         <Routes>
-            <Route path="*" exact element={<AuthRoute />} />
+            {!authedUser
+                ? <Route path="*" exact element={<AuthRoute />} />
+                : <Route path="*" exact element={<NotFoundPage />} />}
             <Route path="/login" exact element={<LoginPage />} />
             <Route element={<AuthRoute />}>
                 <Route path="/" exact element={<DashboardPage />} />
@@ -21,4 +25,6 @@ const RoutersPage = () => {
     );
 }
 
-export default RoutersPage
+const mapStateToProps = ({ authedUser }) => ({ authedUser });
+
+export default connect(mapStateToProps)(RoutersPage);
